@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>NIF GENERATOR</title>
+		
+		<script type='text/javascript' src='jquery.1.6.2.min.js'></script>
+		
+		
+		
+	</head>
+	<script>
+		function pad (str, max) {
+		  str = str.toString();
+		  return str.length < max ? pad(Math.floor(Math.random()*9) + str, max) : str;
+		}
+
+		$(document).ready(function(){
+		  $("#gnif").click(function(){
+		  
+			
+			var text = "";
+		    for(i=0 ; i < 10 ; i++) {
+		       var dni = Math.floor(Math.random()*99999999);
+			   dni = pad(dni,8);
+		       text+="<br />" + dni+("TRWAGMYFPDXBNJZSQVHLCKE".slice(dni%23,dni%23 + 1))
+			}
+		   $(".dialog").html(text);
+		  })
+		});
+
+
+		
+	</script>
+	<body>
+		<input type="button" id="gnif" value="Generate NIF" />
+		<div class="dialog" title="RG LOG"></div>
+	</body>
+
+</html>
+
+
